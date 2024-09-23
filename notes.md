@@ -48,8 +48,22 @@ Therorem 1.5.1. 下面四个对于图T的命题等价:
 
 (iii)T是极小的连通图,即T连通但对任意$e\in E(T)$ , $T-e$就不连通了.
 
-(iv)T是极大的无cycle图,即T不包含cycle但是对任何$x,y\in V(T)$,$T+xy$都存在cycle
+(iv)T是极大的无cycle图,即T不包含cycle但是对任何$x,y\in V(T)$,若$xy\not \in E(T)$,则$T+xy$都存在cycle
 
 pf:(i)$\implies$(ii)
 
-由于$G$连通，存在路径是显然的，只证明唯一性。取$x,y\in T$,假设有两条路径$x,z_0\cdots z_n y$以及$x,t_0\cdots t_l y$.
+由于$T$连通，存在路径是显然的，只证明唯一性。取$x,y\in T$,假设有两条路径$x,z_0\cdots z_n y$以及$x,t_0\cdots t_l y$.取$k=\min_i z_i\not=t_i$,则$\{z_{k+1},\cdots,z_n,y\}\cap \{t_{k+1},\cdots,t_n,y\} \not= \emptyset$.同样取最小的那个$z_j=t_m$,则$G$中存在cycle $z_k z_{k+1}\cdots z_j t_{m-1}\cdots t_k $,这与$T$是tree矛盾.
+
+(ii)$\implies$(iii)
+
+令$e=xy$则$x,y$的唯一路径为$e$,$T-e$后就不存在路径连接$x,y$,因此$T-e$不连通.
+
+(iii)$\implies$(iv)
+
+若$T$有cycle,则令cycle为$x_0\cdots x_n x_0$,令$e=x_n x_0$,$T-e$仍然连通,这与(iii)矛盾.因此$T$不存在cycle.$T$连通,因此存在路径$xTy$,因此$T+xy$有cycle $xTyx$.
+
+---
+
+Corollary 1.5.3. 有$n$个顶点的连通图$G$是tree等价于这个图的边个数是$n-1$
+
+pf:令$\{v_1,\cdots v_n\}$ 满足 $G_i := G[v_1,\cdots,v_i]$连通.若$G$是tree,则
