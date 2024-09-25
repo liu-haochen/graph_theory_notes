@@ -66,4 +66,34 @@ pf:(i)$\implies$(ii)
 
 Corollary 1.5.3. 有$n$个顶点的连通图$G$是tree等价于这个图的边个数是$n-1$
 
-pf:令$\{v_1,\cdots v_n\}$ 满足 $G_i := G[v_1,\cdots,v_i]$连通.若$G$是tree,则
+pf:若$G$是tree,则由推论1.5.2,令$\{v_1,\cdots v_n\}$ 满足 $G_i := G[v_1,\cdots,v_i]$连通,且每个$v_i$只与$v_1,\cdots,v_{i-1}$中一个相邻.从而有$|E(G_0)|=0,|E(G_k)|=|E(G_{k-1})|+1$,因此$|E(G)|=|E(G_n)|=n-1$.
+
+反过来若$|E(G)|=n-1$,我们说明$G$是极小的连通图.同样令$\{v_1,\cdots v_n\}$ 满足 $G_i := G[v_1,\cdots,v_i]$连通.此时每个$v_i$至少与$v_1,\cdots,v_{i-1}$中一个相邻,因此$|E(G_0)|=0,|E(G_k)|\ge|E(G_{k-1})|+1$,即$|E(G)|=|E(G_n)|\ge n-1$.从而只有$n-1$条边的图是极小的连通图.
+
+---
+
+Corollary 1.5.4. 令$T$是一个tree,$G$是任意满足$\delta(G)\ge |T|-1$,则$T$可以视作$G$的子图.
+
+对$n=|T|$用强归纳法.
+
+当$n=2$命题显然成立,只要任取$G$的一条边$e=xy$即可.
+
+假设当 $n<m$ 都成立现在证明$n=m$时成立.同样假设$v_1,\cdots v_m \in V(T)$为满足$T_i = T[v_1,\cdots v_i]$连通的 $\{v_i\}$,由归纳假设可知$T_{m-1}$可以通过映射$f$嵌入到$G$中,由命题假设有$d_G(f(v_{m-1})) \ge |T|-1$,因而$N_G(f(v_{m-1}))\backslash T_{m-1} \not= \emptyset $,取$g\in N_G(f(v_{m-1}))\backslash T_{m-1} $,令$f$扩张到$\hat{f}:T\to G$为
+$$
+\hat{f}(v)=\left\{
+\begin{array}{cc}
+g & v=v_m \\
+f(v)&\text{else}
+\end{array}\right.
+$$
+
+---
+
+Lemma 1.5.5. 令$T$是一个$G$中的normal tree.
+
+(i)任何2点$x,y\in T$ 在$G$中是被$\lceil x \rceil \cap \lceil y \rceil $ seperated .
+
+(ii)
+
+pf:(i)若存在$T$-path的终点恰好是$x,y$.则由定义x,y在$T$-order下是可比较的,不妨假设$x<_T y$,则 $\lceil x \rceil \cap \lceil y \rceil = \lceil x \rceil$.,显然$x,y$会被$\{x\}$ seperated.
+
